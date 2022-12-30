@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import binance from "../assets/binance.png";
 import brise from "../assets/brise.png";
-import etherium from "../assets/ethereum-eth-logo.png";
+import ethereum from "../assets/ethereum-eth-logo.png";
 import { Listbox } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { useWalletProvider } from "../contexts/WalletProvider";
 const chains = [
-  { name: "Bitgert", symbol: "brise", logo: brise },
+  { name: "Ethereum", symbol: "eth", logo: ethereum },
   { name: "Binance", symbol: "bsc", logo: binance },
-  { name: "Etherium", symbol: "eth", logo: etherium },
 ];
 
 function Navbar() {
   const [selectedPerson, setSelectedPerson] = useState(chains[0]);
+  const { connectWallet, wallet } = useWalletProvider();
   return (
     <div className="flex justify-between px-10 py-5 text-white items-center flex-row">
-      <div className="text text-xl">Instant Nft</div>
+      <div className="text text-2xl font-bold">InstantNFT</div>
       <div className="flex gap-2 items-center">
         <div className="">
           <Listbox value={selectedPerson} onChange={setSelectedPerson}>
@@ -48,9 +49,23 @@ function Navbar() {
             </Listbox.Options>
           </Listbox>{" "}
         </div>
-        <button className="button border-2 border-[#ff5100] rounded-md text-white px-5 py-2">
-          Connect Wallet
-        </button>
+        <div>
+          {wallet ? (
+            <div className="button border-2 border-[#ff5100] rounded-md text-white px-5 py-2">{`${wallet?.slice(
+              0,
+              5
+            )}...${wallet?.slice(-3)}`}</div>
+          ) : (
+            <button
+              onClick={async () => {
+                await connectWallet();
+              }}
+              className="button border-2 border-[#ff5100] rounded-md text-white px-5 py-2"
+            >
+              Connect Wallet
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

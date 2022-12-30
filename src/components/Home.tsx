@@ -20,7 +20,7 @@ function Home() {
       </div>
       <div className="flex justify-center mt-10">
         <button className="bg-[#ff5100] px-10 py-3 rounded-md">
-          Create a new farm
+          Create a new Project
         </button>
       </div>
     </div>
