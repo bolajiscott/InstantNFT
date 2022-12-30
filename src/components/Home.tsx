@@ -19,7 +19,7 @@ function Home() {
         <Farm />
       </div>
       <div className="flex justify-center my-10">
-        <button className="bg-secondary px-10 py-3 rounded-md">
+        <button className="bg-secondary text-white hover:scale-95 transition duration-200 px-10 py-3 rounded-md">
           Create New
         </button>
       </div>

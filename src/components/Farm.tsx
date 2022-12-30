@@ -13,7 +13,7 @@ function Farm() {
         <div>APY</div>
         <div> 20%</div>
       </div>
-      <button className=" bg-secondary px-6 rounded-md py-2">Stake</button>
+      <button className=" bg-secondary px-6 rounded-md py-2 hover:scale-95 transition duration-200">Stake</button>
     </div>
   );
 }
