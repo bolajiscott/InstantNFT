@@ -4,10 +4,10 @@ import Navbar from "./Navbar";
 
 function Layout() {
   return (
-    <div className="bg-[#051C2C] min-h-screen">
-      <Navbar></Navbar>
-      <div className="pt-10 px-5">
-        <Outlet></Outlet>
+    <div className="bg-[#F1F2F6] min-h-screen">
+      <Navbar />
+      <div className="pt-10 px-5 h-[calc(100vh_-_6rem)] overflow-y-auto">
+        <Outlet />
       </div>
     </div>
   );
